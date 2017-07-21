@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.map_label {
+  margin: 0 auto;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 26px;
+}
+
+.map_container {
+  width:1200px;
+  height: 900px;
+  position: relative;
+}
+
+.map_image {
+  position: absolute;
+  max-width: 1604px;
+  margin-left: 62px;
+}
+
+.map {
+  opacity: 0.9;
+  width: 1600px;
+  height:900px;
+}
+
+.map g {
+  fill: #FFF;
+  /*stroke: #F00;*/
+  /*stroke-width: 20px;*/
+  stroke-opacity: 0.9;
+}
+
+.map path {
+  cursor: pointer;
+  opacity: 0.01;
+  position: absolute;
+}
+
+.map path:hover {
+  /*stroke-opacity: 1;*/
+  /*fill: #F00;*/
+  opacity: 0.14;
+}
+
+.info_box {
+  display: none;
+  position: absolute;
+  background: #FFF;
+  padding: 40px;
+  width: 475px;
+  height: 650px;
+  border: 1px solid;
+  top: 0px;
+  left:0px;
+}
