@@ -5,27 +5,29 @@
 
 .map_label {
   margin: 0 auto;
-  margin-top: 10px;
+  margin-top: -0.4vw;
   text-align: center;
-  font-size: 26px;
+  font-size: 1.2vw;
 }
 
 .map_container {
-  width:1200px;
-  height: 900px;
+  margin: 1vw auto;
+  width: 90vw;
+  height: 50.65vw;
+  min-width: 600px;
   position: relative;
+  /*border: 1px solid;*/
 }
 
 .map_image {
   position: absolute;
-  max-width: 1604px;
-  margin-left: 62px;
+  width: 90vw;
 }
 
 .map {
   opacity: 0.9;
-  width: 1600px;
-  height:900px;
+  width: 90vw;
+  margin-left: -59px;
 }
 
 .map g {
@@ -48,13 +50,80 @@
 }
 
 .info_box {
-  display: none;
+  /*display: none;*/
   position: absolute;
-  background: #FFF;
-  padding: 40px;
-  width: 475px;
-  height: 650px;
-  border: 1px solid;
-  top: 0px;
-  left:0px;
+  background: #013248;
+  opacity: 0.82;
+  padding: 1vw 0.6vw;
+  width: 14vw;
+  height: 26.6vw;
+  border: 1px solid #01202e;
+  border-radius: 1.4vw;
+  color: #FEFEFE;
+  text-align: center;
+  top: 0;
+  left: 0;
+}
+
+.bright_grey {
+  color: #DDD;
+}
+
+.area_name {
+  font-size: 1.6vw;
+  font-weight: bold;
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.info_box ul {
+  text-align: left;
+  list-style: none;
+}
+
+.info_box li {
+  width: 10.6vw;
+  margin: 0 auto;
+  margin-top: 0.5vw;
+  padding: 0 0.03vw;
+  color: #DDD;
+  border-bottom: 1px solid #557B8F;
+}
+
+.info_box li span {
+  float: right;
+  text-align: right;
+  width: 4.5vw;
+  font-weight: bold;
+  font-family: "Arial Black", Gadget, sans-serif;
+  color: #FEFEFE;
+  font-size: 0.8vw;
+}
+
+.info_box .stats {
+  font-weight: bold;
+  font-family: "Arial Black", Gadget, sans-serif;
+  color: #FEFEFE;
+  width: 10.6vw;
+  margin: 0 auto;
+  margin-top: 0.8vw;
+  padding: 0.24vw;
+  font-size: 0.68vw;
+  opacity: 1.0;
+}
+
+.info_box .stats span {
+  display: block;
+  font-size: 1vw;
+}
+
+.info_box .vacancy {
+  background: #529AB2;
+}
+
+.info_box .income {
+  background: #16708B;
+}
+
+.info_box .population {
+  background: #397A90;
 }
