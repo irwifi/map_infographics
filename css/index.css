@@ -6,6 +6,7 @@
 .map_label {
   margin: 0 auto;
   margin-top: -0.4vw;
+  margin-bottom: 3vw;
   text-align: center;
   font-size: 1.2vw;
 }
@@ -50,7 +51,7 @@
 }
 
 .info_box {
-  /*display: none;*/
+  display: none;
   position: absolute;
   background: #013248;
   opacity: 0.82;
@@ -61,6 +62,7 @@
   border-radius: 1.4vw;
   color: #FEFEFE;
   text-align: center;
+  font-size: 0.76vw;
   top: 0;
   left: 0;
 }
@@ -116,14 +118,14 @@
   font-size: 1vw;
 }
 
-.info_box .vacancy {
+.info_box .area_vacancy {
   background: #529AB2;
 }
 
-.info_box .income {
+.info_box .area_income {
   background: #16708B;
 }
 
-.info_box .population {
+.info_box .area_population {
   background: #397A90;
 }
