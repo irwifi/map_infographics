@@ -1,10 +1,12 @@
 $(function() {
+  var unit = +$(".info_box").css("width").slice(0, -2)/14;
   load_data();
 
   $("path").on("mouseover", function() {
-    $(".info_box").css({"left": (+$(this).position().left + +200) + "px", "top": (+$(this).position().top - +40) + "px"}).show();
+    $(".info_box").css({"left": (+$(this).position().left + +unit*10) + "px", "top": (+$(this).position().top - +unit*2) + "px"}).show();
     $(".info_box .area_name").text($(this).attr("data-name"));
 
+    $(".info_box").css("height", "26.6vw");
     update_row($(this), "studio");
     update_row($(this), "bed1");
     update_row($(this), "bed2");
@@ -42,6 +44,8 @@ $(function() {
 function update_row(area, item) {
   if(area.attr("data-"+item) == "$-1") {
     $(".info_box .area_"+item).parent("li").hide();
+    var unit = +$(".info_box").css("width").slice(0, -2)/14;
+    $(".info_box").css("height", (+$(".info_box").css("height").slice(0, -2) - unit*1.64) + "px");
   } else {
     $(".info_box .area_"+item).text(area.attr("data-"+item));
     $(".info_box .area_"+item).parent("li").show();
