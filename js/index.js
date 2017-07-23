@@ -5,7 +5,7 @@ $(function() {
     $(".info_box").css({"left": $(this).attr("data-left") + "vw", "top": $(this).attr("data-top") + "vw"}).show();
     $(".info_box .area_name").text($(this).attr("data-name"));
 
-    $(".info_box").css("height", "26.6vw");
+    $(".info_box").css("height", "33vw");
     update_row($(this), "studio");
     update_row($(this), "bed1");
     update_row($(this), "bed2");
@@ -35,8 +35,8 @@ $(function() {
 function update_row(area, item) {
   if(area.attr("data-"+item) == "$-1") {
     $(".info_box .area_"+item).parent("li").hide();
-    var unit = +$(".info_box").css("width").slice(0, -2)/17; //17 is width of info_box
-    $(".info_box").css("height", (+$(".info_box").css("height").slice(0, -2)/unit - 1.60) + "vw");
+    var unit = +$(".info_box").css("width").slice(0, -2)/20; //20 is width of info_box
+    $(".info_box").css("height", (+$(".info_box").css("height").slice(0, -2)/unit - 1.75) + "vw");
   } else {
     $(".info_box .area_"+item).text(area.attr("data-"+item));
     $(".info_box .area_"+item).parent("li").show();
@@ -61,7 +61,7 @@ function load_data() {
       ["Mission Hill", "1535.28", "1899.09", "2349.33", "3109.43", "3826.33", "4572.52", "6.81", "30,487", "15,181", "38", "14"],
       ["Newton", "-1", "1840.00", "2346.60", "3384.51", "4027.15", "-1", "2.60", "122,080", "85,146", "22", "22"],
       ["North End", "1570.50", "2247.45", "2934.42", "3905.67", "3469.00", "-1", "6.875", "88,786", "10,686", "44", "9"],
-      ["Quency", "-1", "1299.84", "1837.57", "2273.25", "-1", "-1", "5.59", "64,155", "92,271", "72", "20"],
+      ["Quincy", "-1", "1299.84", "1837.57", "2273.25", "-1", "-1", "5.59", "64,155", "92,271", "72", "20"],
       ["Roxbury", "-1", "-1", "2086.00", "3049.00", "3132.00", "-1", "5.24", "28,885", "51,234", "44", "18"],
       ["Somerville", "1855.79", "1972.11", "2182.63", "2949.39", "3777.14", "4825.00", "3.97", "73,106", "75,754", "38", "2"],
       ["South Boston", "1409.67", "1952.44", "2510.14", "3303.86", "3923.35", "-1", "1.40", "77,633", "31,799", "54", "7"],

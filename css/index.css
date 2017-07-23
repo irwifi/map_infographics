@@ -53,13 +53,13 @@
   background: #013248;
   opacity: 0.82;
   padding: 1vw 0.6vw;
-  width: 17vw;
-  height: 26.6vw;
+  width: 20vw;
+  height: 33vw;
   border: 0.1vw solid #01202e;
   border-radius: 1.4vw;
   color: #FEFEFE;
   text-align: center;
-  font-size: 0.76vw;
+  font-size: 0.86vw;
   top: 0;
   left: 0;
 }
@@ -81,10 +81,10 @@
 }
 
 .info_box li {
-  width: 12vw;
+  width: 16vw;
   margin: 0 auto;
   margin-top: 0.5vw;
-  padding: 0 0.03vw;
+  padding: 0 0.1vw;
   color: #DDD;
   border-bottom: 0.1vw solid #557B8F;
 }
@@ -92,28 +92,28 @@
 .info_box li span {
   float: right;
   text-align: right;
-  width: 4.5vw;
+  width: 5vw;
   font-weight: bold;
   font-family: "Arial Black", Gadget, sans-serif;
   color: #FEFEFE;
-  font-size: 0.8vw;
+  font-size: 1vw;
 }
 
 .info_box .stats {
   font-weight: bold;
   font-family: "Arial Black", Gadget, sans-serif;
   color: #FEFEFE;
-  width: 15vw;
+  width: 17vw;
   margin: 0 auto;
   margin-top: 0.8vw;
-  padding: 0.24vw;
-  font-size: 0.68vw;
+  padding: 0.8vw;
+  font-size: 1vw;
   opacity: 1.0;
 }
 
 .info_box .stats span {
   display: block;
-  font-size: 1vw;
+  font-size: 1.2vw;
 }
 
 .info_box .area_vacancy {
