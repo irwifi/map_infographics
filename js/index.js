@@ -2,10 +2,11 @@ $(function() {
   load_data();
 
   $("path").on("mouseover", function() {
-    $(".info_box").css({"left": $(this).attr("data-left") + "vw", "top": $(this).attr("data-top") + "vw"}).show();
-    $(".info_box .area_name").text($(this).attr("data-name"));
+    $(".info_box").css("height", "65%");
+    // $(".info_box").css("top", (+$(".map_image").css("height").slice(0, -2) - +$(".info_box").css("height").slice(0, -2)) + "px");
+    $(".info_box").css({"left": $(this).attr("data-left") + "vw", "top": $(this).attr("data-top") + "vw"});
+    $(".info_box").show();
 
-    $(".info_box").css("height", "33vw");
     update_row($(this), "studio");
     update_row($(this), "bed1");
     update_row($(this), "bed2");
@@ -13,11 +14,7 @@ $(function() {
     update_row($(this), "bed4");
     update_row($(this), "bed5");
 
-    $(".info_box .area_bed1").text($(this).attr("data-bed1"));
-    $(".info_box .area_bed2").text($(this).attr("data-bed2"));
-    $(".info_box .area_bed3").text($(this).attr("data-bed3"));
-    $(".info_box .area_bed4").text($(this).attr("data-bed4"));
-    $(".info_box .area_bed5").text($(this).attr("data-bed5"));
+    $(".info_box .area_name").text($(this).attr("data-name"));
     $(".info_box .area_vacancy span").text($(this).attr("data-vacancy"));
     $(".info_box .area_income span").text($(this).attr("data-income"));
     $(".info_box .area_population span").text($(this).attr("data-population"));
@@ -35,8 +32,9 @@ $(function() {
 function update_row(area, item) {
   if(area.attr("data-"+item) == "$-1") {
     $(".info_box .area_"+item).parent("li").hide();
-    var unit = +$(".info_box").css("width").slice(0, -2)/20; //20 is width of info_box
-    $(".info_box").css("height", (+$(".info_box").css("height").slice(0, -2)/unit - 1.75) + "vw");
+    var unit = +$(".info_box").css("width").slice(0, -2)/22; //22% is the width of info_box
+    $(".info_box").css("height", (+$(".info_box").css("height").slice(0, -2) - +1.985*unit) + "px");
+    $(".info_box").css("top", (+$(".info_box").css("top").slice(0, -2) + +1.985*unit) + "px");
   } else {
     $(".info_box .area_"+item).text(area.attr("data-"+item));
     $(".info_box .area_"+item).parent("li").show();
@@ -72,4 +70,8 @@ function load_data() {
   $.each(data_array, function( index, value ) {
     $(".map .area" + index).attr({"data-name": value[0], "data-studio": "$"+value[1], "data-bed1": "$"+value[2], "data-bed2": "$"+value[3], "data-bed3": "$"+value[4], "data-bed4": "$"+value[5], "data-bed5": "$"+value[6], "data-vacancy": value[7]+"%", "data-income": "$"+value[8], "data-population": value[9], "data-left": value[10], "data-top": value[11]});
   });
+
+  $(".info_box").css({
+    "left": (+$(".map_image").css("width").slice(0, -2) - +$(".info_box").css("width").slice(0, -2)) + "px",
+    "top": (+$(".map_image").css("height").slice(0, -2) - +$(".info_box").css("height").slice(0, -2)) + "px"});
 }
