@@ -1,33 +1,70 @@
-* {
+v* {
   margin: 0;
   padding: 0;
 }
 
-.map_label {
+.overlay {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  opacity: 0.8;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.map_popup_container {
+  display: none;
+  position: absolute;
+  width: 90vw;
+  height: 90vh;
+  margin: 4vh 5vw;
+  z-index: 20;
+}
+
+.main_container {
+  padding-top: 1%;
+}
+
+.sidebar {
+  display: block;
+  width: 16%;
+  height: 90vh;
   margin: 0 auto;
-  margin-top: -0.4vw;
-  margin-bottom: 3vw;
+  float: left;
+  border-right: 1px solid;
   text-align: center;
-  font-size: 1.2vw;
+}
+
+.map_label {
+  clear: both;
+  margin-top: -0.3vw;
+  text-align: right;
+  font-size: 0.8vw;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .map_container {
-  margin: 1vw auto;
-  width: 90vw;
-  height: 50.65vw;
+  margin: 0 auto;
+  width: 80%;
   min-width: 600px;
   position: relative;
+  overflow: hidden;
+  float: right;
+  display: block;
 }
 
 .map_image {
   position: absolute;
-  width: 90vw;
+  width: 100%;
 }
 
 .map {
   margin: 0 auto;
   opacity: 0.9;
-  width: 90vw;
+  width: 100%;
 }
 
 .map g {
@@ -53,8 +90,8 @@
   background: #013248;
   opacity: 0.82;
   padding: 1vw 0.6vw;
-  width: 22%;
-  height: 65%;
+  width: 24%;
+  height: 72%;
   border: 0.1vw solid #01202e;
   border-radius: 1.4vw;
   color: #FEFEFE;
@@ -77,14 +114,14 @@
 .info_box ul {
   text-align: left;
   list-style: none;
-  margin-bottom: 0;
+  margin-left: -39px;
+  margin-bottom: 0%;
 }
 
 .info_box li {
-  width: 16vw;
+  width: 90%;
   margin: 0 auto;
   margin-top: 0.5vw;
-  padding: 0 0.1vw;
   color: #DDD;
   border-bottom: 0.1vw solid #557B8F;
 }
@@ -92,7 +129,7 @@
 .info_box li span {
   float: right;
   text-align: right;
-  width: 5vw;
+  width: 40%;
   font-weight: bold;
   font-family: "Arial Black", Gadget, sans-serif;
   color: #FEFEFE;
