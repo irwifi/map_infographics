@@ -1,4 +1,4 @@
-v* {
+* {
   margin: 0;
   padding: 0;
 }
@@ -12,6 +12,12 @@ v* {
   opacity: 0.8;
   z-index: 10;
   overflow: hidden;
+}
+
+.close {
+  margin: 0.2% 1%;
+  font-size: 400%;
+  color: #EEE;
 }
 
 .map_popup_container {
@@ -31,17 +37,47 @@ v* {
   display: block;
   width: 16%;
   height: 90vh;
+  padding-right: 0.8vw;
   margin: 0 auto;
   float: left;
   border-right: 1px solid;
   text-align: center;
 }
 
+.toggle {
+  width: 100%;
+  font-size: 18px;
+  padding: 0.6vw 0vw;
+  background: #6c9999;
+  margin: 10px auto;
+  color: #DDD;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.toggle:hover {
+  font-weight: bold;
+  color: #FFF;
+  background: #6c99b7;
+}
+
+.active {
+  background: #3CF;
+  color: #FFF;
+  font-weight: bold;
+  border: 3px solid #e94400;
+  cursor: default;
+}
+
+.active:hover {
+  background: #3CF;
+}
+
 .map_label {
   clear: both;
-  margin-top: -0.3vw;
+  margin-top: -0.3%;
   text-align: right;
-  font-size: 0.8vw;
+  font-size: 90%;
   cursor: pointer;
   text-decoration: underline;
 }
@@ -89,16 +125,16 @@ v* {
   position: absolute;
   background: #013248;
   opacity: 0.82;
-  padding: 1vw 0.6vw;
-  width: 24%;
-  height: 72%;
-  border: 0.1vw solid #01202e;
-  border-radius: 1.4vw;
+  padding: 0.6% 0.2%;
+  width: 20%;
+  height: 55%;
+  border: 1px solid #01202e;
+  border-radius: 1.5%;
   color: #FEFEFE;
   text-align: center;
-  font-size: 0.86vw;
-  top: 0;
-  left: 0;
+  font-size: 100%;
+  bottom: 0;
+  right: 0;
 }
 
 .bright_grey {
@@ -106,7 +142,7 @@ v* {
 }
 
 .area_name {
-  font-size: 1.6vw;
+  font-size: 125%;
   font-weight: bold;
   font-family: "Arial Black", Gadget, sans-serif;
 }
@@ -114,16 +150,16 @@ v* {
 .info_box ul {
   text-align: left;
   list-style: none;
-  margin-left: -39px;
-  margin-bottom: 0%;
+  margin-bottom: 7%;
 }
 
 .info_box li {
   width: 90%;
   margin: 0 auto;
-  margin-top: 0.5vw;
+  margin-top: 2.8%;
+  padding: 0.3% 0;
   color: #DDD;
-  border-bottom: 0.1vw solid #557B8F;
+  border-bottom: 1px solid #557B8F;
 }
 
 .info_box li span {
@@ -133,24 +169,24 @@ v* {
   font-weight: bold;
   font-family: "Arial Black", Gadget, sans-serif;
   color: #FEFEFE;
-  font-size: 1vw;
+  font-size: 110%;
 }
 
 .info_box .stats {
   font-weight: bold;
   font-family: "Arial Black", Gadget, sans-serif;
   color: #FEFEFE;
-  width: 17vw;
+  width: 92%;
   margin: 0 auto;
-  margin-top: 0.8vw;
-  padding: 0.8vw;
-  font-size: 1vw;
+  margin-top: 6%;
+  padding: 2%;
+  font-size: 100%;
   opacity: 1.0;
 }
 
 .info_box .stats span {
   display: block;
-  font-size: 1.2vw;
+  font-size: 100%;
 }
 
 .info_box .area_vacancy {

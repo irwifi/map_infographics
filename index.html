@@ -8,11 +8,19 @@
 </head>
 
 <body>
-  <div class="overlay"></div>
+  <div class="overlay"><span class="close">x</span></div>
   <div class="map_popup_container"></div>
 
   <div class="container-fluid main_container">
-    <div class="sidebar">Left Sidebar</div>
+    <div class="sidebar">
+      <h1>Left Sidebar</h1>
+
+      Info Box Position
+      <div>
+        <div id="defined_pos" class="toggle active">Middle of the Map.</div>
+        <div id="bottom_right" class="toggle">Bottom Right Corner.</div>
+      </div>
+    </div>
 
     <div class="map_container">
       <img src="img/map.jpg" class="map_image">

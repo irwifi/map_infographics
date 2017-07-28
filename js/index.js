@@ -1,27 +1,44 @@
 $(function() {
   load_data();
 
-  $(".main_container path").on("mouseover", function() {
+  $("path").on("mouseover", function() {
     info_popup($(this));
   });
 
-  $(".main_container .info_box, .main_container path").on("mouseout", function() {
+  $(".info_box, path").on("mouseout", function() {
     $(".info_box").hide();
   });
 
-  $(".main_container .info_box").on("mouseover", function() {
+  $(".info_box").on("mouseover", function() {
     $(".info_box").show();
   });
 
   $(".map_popup").on("click", map_popup)
 
   $(".overlay").on("click", map_unpopup)
+
+  $("#defined_pos").on("click", function() {
+    $("#defined_pos").addClass("active");
+    $("#bottom_right").removeClass("active");
+  });
+
+  $("#bottom_right").on("click", function() {
+    $("#bottom_right").addClass("active");
+    $("#defined_pos").removeClass("active");
+  });
 });
 
 function info_popup(element) {
-  $(".info_box").css("height", "72%");
-  $(".info_box").css("top", (+$(".map_image").css("height").slice(0, -2) - +$(".info_box").css("height").slice(0, -2)) + "px");
-  // $(".info_box").css({"left": element.attr("data-left") + "vw", "top": element.attr("data-top") + "vw"});
+  $(".info_box").css({"height": "55%"});
+  $(".info_box").css({
+    "top": (+$(".map_image").css("height").slice(0, -2) - +$(".info_box").css("height").slice(0, -2)) + "px",
+    "left": (+$(".map_image").css("width").slice(0, -2) - +$(".info_box").css("width").slice(0, -2)) + "px"});
+
+  // show the info box at the predefined position
+  if($("#defined_pos").hasClass("active")) {
+    $(".info_box").css({"left": element.attr("data-left") + "%", "top": element.attr("data-top") + "%"});
+  }
+
   $(".info_box").show();
 
   update_row(element, "studio");
@@ -40,9 +57,9 @@ function info_popup(element) {
 function update_row(area, item) {
   if(area.attr("data-"+item) == "$-1") {
     $(".info_box .area_"+item).parent("li").hide();
-    var unit = +$(".info_box").css("width").slice(0, -2)/22; //22% is the width of info_box
-    // $(".info_box").css("height", (+$(".info_box").css("height").slice(0, -2) - +1.985*unit) + "px");
-    // $(".info_box").css("top", (+$(".info_box").css("top").slice(0, -2) + +1.985*unit) + "px");
+    var unit = +$(".info_box").css("width").slice(0, -2)/20; //20% is the width of info_box
+    $(".info_box").css("height", (+$(".info_box").css("height").slice(0, -2) - +2*unit) + "px");
+    $(".info_box").css("top", (+$(".info_box").css("top").slice(0, -2) + +2*unit) + "px");
   } else {
     $(".info_box .area_"+item).text(area.attr("data-"+item));
     $(".info_box .area_"+item).parent("li").show();
@@ -78,11 +95,6 @@ function load_data() {
   $.each(data_array, function( index, value ) {
     $(".map .area" + index).attr({"data-name": value[0], "data-studio": "$"+value[1], "data-bed1": "$"+value[2], "data-bed2": "$"+value[3], "data-bed3": "$"+value[4], "data-bed4": "$"+value[5], "data-bed5": "$"+value[6], "data-vacancy": value[7]+"%", "data-income": "$"+value[8], "data-population": value[9], "data-left": value[10], "data-top": value[11]});
   });
-
-  $(".info_box").css({
-    "left": (+$(".map_image").css("width").slice(0, -2) - +$(".info_box").css("width").slice(0, -2)) + "px",
-    "top": (+$(".map_image").css("height").slice(0, -2) - +$(".info_box").css("height").slice(0, -2)) + "px"
-  });
 }
 
 function map_popup() {
@@ -104,19 +116,16 @@ function map_popup() {
     $(".map_popup_container .info_box").show();
   });
 
-  $(".info_box").css({
-    "left": (+$(".map_popup_container .map_image").css("width").slice(0, -2) - +$(".map_popup_container .info_box").css("width").slice(0, -2)) + "px",
-    "top": (+$(".map_popup_container .map_image").css("height").slice(0, -2) - +$(".map_popup_container .info_box").css("height").slice(0, -2)) + "px"
-  });
+  $(".map_popup_container .map_label").remove();
+
+  $(".info_box .stats").css("font-size", "120%");
+  $(".area_name").css("font-size", "200%");
 }
 
 function map_unpopup() {
   $(".overlay").hide();
   $(".map_popup_container .map_container").remove();
   $(".map_popup_container").hide();
-
-  $(".info_box").css({
-    "left": (+$(".map_image").css("width").slice(0, -2) - +$(".info_box").css("width").slice(0, -2)) + "px",
-    "top": (+$(".map_image").css("height").slice(0, -2) - +$(".info_box").css("height").slice(0, -2)) + "px"
-  });
+  $(".info_box .stats").css("font-size", "100%");
+  $(".area_name").css("font-size", "125%");
 }
