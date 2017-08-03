@@ -5,6 +5,7 @@ $(function() {
 });
 
 function load_map() {
+  $("svg").css({"width": $(".map_image").css("width"), "height": $(".map_image").css("height")});
   $(".map_wrapper").css("margin-top", ($(".sidebar").height() - $(".map_wrapper").height()) / 2 +  "px");
 }
 
@@ -34,9 +35,18 @@ function load_events() {
     $("#bottom_right").addClass("active");
     $("#defined_pos").removeClass("active");
   });
+
+  $(window).resize(function() {
+    clearTimeout(window.resizedFinished);
+    window.resizedFinished = setTimeout(function() {
+        $("svg").css({"width": $(".map_image").css("width"), "height": $(".map_image").css("height")});
+    }, 250);
+  });
 }
 
 function info_popup(element) {
+  $(".map_popup_container svg").css({"width": $(".map_popup_container .map_image").css("width"), "height": $(".map_popup_container .map_image").css("height")});
+
   $(".info_box").css({"height": "55%"});
   $(".info_box").css({
     "top": (+$(".map_image").css("height").slice(0, -2) - +$(".info_box").css("height").slice(0, -2) - +4) + "px",

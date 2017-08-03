@@ -118,6 +118,7 @@
 
 .map path {
   cursor: pointer;
+  /*opacity: 0.9;*/
   opacity: 0.01;
   position: absolute;
 }
