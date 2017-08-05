@@ -22,9 +22,9 @@ function load_events() {
     $(".info_box").show();
   });
 
-  $(".map_popup").on("click", map_popup)
+  // $(".map_popup").on("click", map_popup)
 
-  $(".overlay").on("click", map_unpopup)
+  // $(".overlay").on("click", map_unpopup)
 
   $("#defined_pos").on("click", function() {
     $("#defined_pos").addClass("active");
@@ -115,31 +115,31 @@ function load_data() {
   });
 }
 
-function map_popup() {
-  $(".overlay").show();
-  $(".map_popup_container").show();
-  $(".map_container").clone().appendTo(".map_popup_container");
-  $(".map_popup_container .map_container").css({"width": "100%"});
+// function map_popup() {
+//   $(".overlay").show();
+//   $(".map_popup_container").show();
+//   $(".map_container").clone().appendTo(".map_popup_container");
+//   $(".map_popup_container .map_container").css({"width": "100%"});
 
-  $(".map_popup_container path").on("mouseover", function() {
-    info_popup($(this));
-    $(".main_container .info_box").hide();
-  });
+//   $(".map_popup_container path").on("mouseover", function() {
+//     info_popup($(this));
+//     $(".main_container .info_box").hide();
+//   });
 
-  $(".map_popup_container .info_box, .map_popup_container path").on("mouseout", function() {
-    $(".map_popup_container .info_box").hide();
-  });
+//   $(".map_popup_container .info_box, .map_popup_container path").on("mouseout", function() {
+//     $(".map_popup_container .info_box").hide();
+//   });
 
-  $(".map_popup_container .info_box").on("mouseover", function() {
-    $(".map_popup_container .info_box").show();
-  });
+//   $(".map_popup_container .info_box").on("mouseover", function() {
+//     $(".map_popup_container .info_box").show();
+//   });
 
-  $(".map_popup_container .map_label").remove();
-  $(".map_popup_container").css("height", $(".map_image").css("height"));
-}
+//   $(".map_popup_container .map_label").remove();
+//   $(".map_popup_container").css("height", $(".map_image").css("height"));
+// }
 
-function map_unpopup() {
-  $(".overlay").hide();
-  $(".map_popup_container .map_container").remove();
-  $(".map_popup_container").hide();
-}
+// function map_unpopup() {
+//   $(".overlay").hide();
+//   $(".map_popup_container .map_container").remove();
+//   $(".map_popup_container").hide();
+// }
