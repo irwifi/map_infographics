@@ -23,8 +23,9 @@ function rmap_popup() {
   let iheight = window.innerHeight * 0.9;
 
   if(iheight >= (iwidth * 9) / 16) {
-    iwidth = 90;
     iheight = (iwidth * 9) / 16;
+    iheight = (iheight / window.innerHeight) * 100;
+    iwidth = 90;
   } else {
     iwidth = (iheight * 16) / 9;
     iwidth = (iwidth / window.innerWidth) * 100;
