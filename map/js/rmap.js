@@ -1,11 +1,12 @@
-let iframe_width, iframe_height;
+let iframe_width, iframe_height, map_location;
 
 $(function() {
   iframe_width = $("#map_hook").attr("data-width");
   iframe_height = $("#map_hook").attr("data-height");
+  map_location = $("#map_hook").attr("data-map_location");
 
   $("#map_hook").after("<div id='rmap_overlay'><div id='rmap_close'>&#10006</div></div> \
-    <iframe id='rmap_iframe' src='https://map-infographics.herokuapp.com/' frameborder='2' scrolling='no' width='" + iframe_width + "px' height='" + iframe_height + "px'></iframe> \
+    <iframe id='rmap_iframe' src='" + map_location + "' frameborder='2' scrolling='no' width='" + iframe_width + "px' height='" + iframe_height + "px'></iframe> \
     <div id='rmap_popup'>Click here to enlarge the Map</div>");
   $("#rmap_overlay").css({"display": "none", "position": "fixed", "top": "0", "left": "0", "width": "100vw", "height": "100vh", "background": "#000", "opacity": "0.85", "z-index": "999990", "overflow": "hidden"});
   $("#rmap_close").css({"position": "fixed", "top": "1vh", "left": "96vw", "color": "#FFF", "font-famly": "", "font-size": "60px", "font-weight": "bold", "cursor": "pointer"});
