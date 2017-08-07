@@ -2,7 +2,7 @@ let iframe_width, iframe_height, map_location;
 
 $(function() {
   iframe_width = $("#map_hook").attr("data-width");
-  iframe_height = $("#map_hook").attr("data-height");
+  iframe_height = (iframe_width * 9) / 16;
   map_location = $("#map_hook").attr("data-map_location");
 
   $("#map_hook").after("<div id='rmap_overlay'><div id='rmap_close'>&#10006</div></div> \
@@ -18,7 +18,20 @@ $(function() {
 function rmap_popup() {
   $("#rmap_overlay").show();
   $("#rmap_popup").hide();
-  $("#rmap_iframe").css({"width": "86vw", "height": "86vh", "margin-top": "7vh"});
+
+  let iwidth = window.innerWidth * 0.9;
+  let iheight = window.innerHeight * 0.9;
+
+  if(iheight >= (iwidth * 9) / 16) {
+    iwidth = 90;
+    iheight = (iwidth * 9) / 16;
+  } else {
+    iwidth = (iheight * 16) / 9;
+    iwidth = (iwidth / window.innerWidth) * 100;
+    iheight = 90;
+  }
+
+  $("#rmap_iframe").css({"width": iwidth + "vw", "height": iheight + "vh", "margin-top": (100 - iheight) / 2 + "vh"});
 }
 
 function rmap_unpop() {

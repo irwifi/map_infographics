@@ -22,18 +22,14 @@ function load_events() {
     $(".info_box").show();
   });
 
-  // $(".map_popup").on("click", map_popup)
-
-  // $(".overlay").on("click", map_unpopup)
-
-  $("#defined_pos").on("click", function() {
-    $("#defined_pos").addClass("active");
-    $("#bottom_right").removeClass("active");
+  $("#center_pos").on("click", function() {
+    $("#center_pos").addClass("active");
+    $("#corner_pos").removeClass("active");
   });
 
-  $("#bottom_right").on("click", function() {
-    $("#bottom_right").addClass("active");
-    $("#defined_pos").removeClass("active");
+  $("#corner_pos").on("click", function() {
+    $("#corner_pos").addClass("active");
+    $("#center_pos").removeClass("active");
   });
 
   $(window).resize(function() {
@@ -53,7 +49,7 @@ function info_popup(element) {
     "left": (+$(".map_image").css("width").slice(0, -2) - +$(".info_box").css("width").slice(0, -2) - +4) + "px"});
 
   // show the info box at the predefined position
-  if($("#defined_pos").hasClass("active")) {
+  if($("#center_pos").hasClass("active")) {
     $(".info_box").css({"left": element.attr("data-left") + "%", "top": element.attr("data-top") + "%"});
   }
 
@@ -114,32 +110,3 @@ function load_data() {
     $(".map .area" + index).attr({"data-name": value[0], "data-studio": "$"+value[1], "data-bed1": "$"+value[2], "data-bed2": "$"+value[3], "data-bed3": "$"+value[4], "data-bed4": "$"+value[5], "data-bed5": "$"+value[6], "data-vacancy": value[7]+"%", "data-income": "$"+value[8], "data-population": value[9], "data-left": value[10], "data-top": value[11]});
   });
 }
-
-// function map_popup() {
-//   $(".overlay").show();
-//   $(".map_popup_container").show();
-//   $(".map_container").clone().appendTo(".map_popup_container");
-//   $(".map_popup_container .map_container").css({"width": "100%"});
-
-//   $(".map_popup_container path").on("mouseover", function() {
-//     info_popup($(this));
-//     $(".main_container .info_box").hide();
-//   });
-
-//   $(".map_popup_container .info_box, .map_popup_container path").on("mouseout", function() {
-//     $(".map_popup_container .info_box").hide();
-//   });
-
-//   $(".map_popup_container .info_box").on("mouseover", function() {
-//     $(".map_popup_container .info_box").show();
-//   });
-
-//   $(".map_popup_container .map_label").remove();
-//   $(".map_popup_container").css("height", $(".map_image").css("height"));
-// }
-
-// function map_unpopup() {
-//   $(".overlay").hide();
-//   $(".map_popup_container .map_container").remove();
-//   $(".map_popup_container").hide();
-// }
