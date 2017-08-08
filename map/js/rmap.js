@@ -2,6 +2,9 @@ let iframe_width, iframe_height, map_location;
 
 $(function() {
   iframe_width = $("#map_hook").attr("data-width");
+  if(iframe_width > window.innerWidth) {
+    iframe_width = window.innerWidth
+  }
   iframe_height = (iframe_width * 9) / 16;
   map_location = $("#map_hook").attr("data-map_location");
 
@@ -21,16 +24,9 @@ function rmap_popup() {
 
   let iwidth = window.innerWidth * 0.9;
   let iheight = window.innerHeight * 0.9;
-
-  if(iheight >= (iwidth * 9) / 16) {
-    iheight = (iwidth * 9) / 16;
-    iheight = (iheight / window.innerHeight) * 100;
-    iwidth = 90;
-  } else {
-    iwidth = (iheight * 16) / 9;
-    iwidth = (iwidth / window.innerWidth) * 100;
-    iheight = 90;
-  }
+  let width_height = full_size_aspect_ratio(iwidth, iheight);
+  iwidth = (width_height[0] / window.innerWidth) * 100;
+  iheight = (width_height[1] / window.innerHeight) * 100;
 
   $("#rmap_iframe").css({"width": iwidth + "vw", "height": iheight + "vh", "margin-top": (100 - iheight) / 2 + "vh"});
 }
@@ -39,4 +35,13 @@ function rmap_unpop() {
   $("#rmap_overlay").hide();
   $("#rmap_popup").show();
   $("#rmap_iframe").css({"width": iframe_width + "px", "height": iframe_height + "px", "margin-top": "0"});
+}
+
+function full_size_aspect_ratio(iwidth, iheight, dwidth = 16, dheight = 9) {
+  if(iheight >= (iwidth * dheight) / dwidth) {
+    iheight = (iwidth * dheight) / dwidth;
+  } else {
+    iwidth = (iheight * dwidth) / dheight;
+  }
+  return [iwidth, iheight]
 }
